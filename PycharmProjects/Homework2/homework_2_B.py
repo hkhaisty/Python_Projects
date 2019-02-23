@@ -4,23 +4,25 @@ win = GraphWin("Homework 2", 200, 200)
 
 yAxis = Line(Point(100, 0), Point(100, 200))
 xAxis = Line(Point(0, 100), Point(200, 100))
-c = Circle(Point(100, 0), 100)
-c.draw(win)
 
+leftBound = Text(Point(7, 110),"-1")
+rightBound = Text(Point(193, 110), "1")
+
+leftBound.draw(win)
+rightBound.draw(win)
 xAxis.draw(win)
 yAxis.draw(win)
 
 x = 1.0
 y = 1.0
 
-for i in range(1, 50):
-    x *= 2.0
-    y *= 2.0
-    graph = Point(x, y)
+for i in range(1, 200):
+    x = (i - 100)/100
+    y = (x*x)
+    graph = Point(i, 200-(y*200)-100)
     graph.draw(win)
 
 xAxis.setFill('blue')
 yAxis.setFill('blue')
-c.setOutline('orange')
 
 win.getMouse()
